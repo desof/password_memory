@@ -10,26 +10,26 @@ class ListViewEntradas extends StatelessWidget {
       child: StreamBuilder(
         stream: state.entradas.entradas,
         builder: (BuildContext context, AsyncSnapshot snap) {
-          List<Entradas> products;
+          List<Entradas> entradas;
 
           if (snap.hasData && snap.data != null)
-            products = snap.data;
+            entradas = snap.data;
           else
-            products = [];
+            entradas = [];
 
           return ListView.builder(
-            itemCount: products.length,
+            itemCount: entradas.length,
             itemBuilder: (BuildContext context, int position) {
-              Entradas product = products[position];
+              Entradas entrada = entradas[position];
 
               return Dismissible(
-                key: Key(product.id.toString()),
+                key: Key(entrada.id.toString()),
                 onDismissed: (direction) {
-                  state.entradas.deleteentrada(product.id);
+                  state.entradas.deleteentrada(entrada.id);
                   Scaffold.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        "${product.titulo} eliminado!",
+                        "${entrada.titulo} eliminado!",
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -46,26 +46,26 @@ class ListViewEntradas extends StatelessWidget {
                 ),
                 direction: DismissDirection.endToStart,
                 child: ListTile(
-                  title: Text(product.titulo),
-                  subtitle: Text(product.usuario),
-                  leading: Text(product.id?.toString() ?? ''),
+                  title: Text(entrada.titulo),
+                  subtitle: Text(entrada.usuario),
+                  leading: Text(entrada.id?.toString() ?? ''),
                   onTap: () {
                     state.entradas.updateentrada(
                       Entradas(
-                        titulo: product.titulo,
-                        usuario: product.usuario,
-                        password: product.password,
-                        link: product.link,
-                        nota: product.nota,
-                        id: product.id,
+                        titulo: entrada.titulo,
+                        usuario: entrada.usuario,
+                        password: entrada.password,
+                        link: entrada.link,
+                        nota: entrada.nota,
+                        id: entrada.id,
                       ),
                       position,
                     );
-                    print("${product.titulo} TITULO!");
-                    print("${product.usuario} USUARIO!");
-                    print("${product.password} PASS!");
-                    print("${product.link} link!");
-                    print("${product.nota} NOTA!");
+                    print(" TITULO>>   ${entrada.titulo}");
+                    print(" USUARIO>>  ${entrada.usuario}");
+                    print(" PASS>>     ${entrada.password}");
+                    print(" link>>     ${entrada.link}");
+                    //print("${entrada.nota} NOTA!");
                     
                   },
                 ),
