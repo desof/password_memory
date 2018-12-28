@@ -23,7 +23,7 @@ class DatabaseSqflite {
     String path = join(databasePath, 'passwords.db');
 
     //ELIMINAR BASE DE DATOS//
-     //await deleteDatabase(path);
+    //await deleteDatabase(path);
 
     Database db = await openDatabase(path,
         version: 1, onCreate: _onCreate, onUpgrade: _onUpgrade);
@@ -37,7 +37,7 @@ class DatabaseSqflite {
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 1) {
       await db.execute(
-        'CREATE TABLE $T_ENTRADAS($C_ID_PW INTEGER PRIMARY KEY, $C_TITULO_PW TEXT, $C_USUARIO_PW TEXT, $C_PASSWORD_PW TEXT, $C_LINK_PW TEXT, $C_NOTA_PW TEXT)',
+        'CREATE TABLE $T_ENTRADAS($C_ID_PW INTEGER PRIMARY KEY, $C_TITULO_PW TEXT, $C_USUARIO_PW TEXT, $C_PASSWORD_PW TEXT, $C_LINK_PW TEXT, $C_NOTA_PW TEXT, $C_GRUPO_PW TEXT)',
       );
        await db.execute(
         'CREATE TABLE $T_GRUPOS($C_ID_GR INTEGER PRIMARY KEY, $C_NOMBRE_GR TEXT, $C_COLOR_GR TEXT)',

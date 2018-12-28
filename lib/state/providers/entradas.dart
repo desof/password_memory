@@ -36,6 +36,7 @@ class EntradasProvider {
         password: entrada.password,
         link: entrada.link,
         nota: entrada.nota,
+        idGrupo: entrada.idGrupo,
         id: id);
     _entradas.value.add(p);
     addentradas(_entradas.value);
@@ -60,11 +61,12 @@ class EntradasProvider {
     List entradasMap = await _db.getTable(T_ENTRADAS);
     List<Entradas> entradas = entradasMap
         .map((entradaMap) => Entradas(
-            titulo: entradaMap['title'],
-            usuario: entradaMap['description'],
+            titulo: entradaMap['titulo'],
+            usuario: entradaMap['usuario'],
             password: entradaMap['password'],
             link: entradaMap['link'],
             nota: entradaMap['nota'],
+            idGrupo: entradaMap['idgrupo'],
             id: entradaMap['id']))
         .toList();
     addentradas(entradas);

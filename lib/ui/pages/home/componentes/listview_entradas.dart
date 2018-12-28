@@ -57,6 +57,7 @@ class ListViewEntradas extends StatelessWidget {
                         password: entrada.password,
                         link: entrada.link,
                         nota: entrada.nota,
+                        idGrupo: entrada.idGrupo,
                         id: entrada.id,
                       ),
                       position,
@@ -65,8 +66,8 @@ class ListViewEntradas extends StatelessWidget {
                     print(" USUARIO>>  ${entrada.usuario}");
                     print(" PASS>>     ${entrada.password}");
                     print(" link>>     ${entrada.link}");
-                    //print("${entrada.nota} NOTA!");
-                    
+                    print(" NOTA>>     ${entrada.nota} ");
+                    print(" GRUPO>>    ${entrada.idGrupo} ");
                   },
                 ),
               );

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class InputSelect extends StatefulWidget {
-  InputSelect({@required this.hint});
+  InputSelect({@required this.hint, @required this.value, this.valueChange});
 
   final String hint;
+  final String value;
+  final Function(String) valueChange;
+
   @override
   _InputSelectState createState() => _InputSelectState();
 }
@@ -23,8 +26,9 @@ class _InputSelectState extends State<InputSelect> {
           value: 'cat-2',
         ),
       ],
-      value: null,
+      value: widget.value ?? 'cat-1',
       onChanged: (item) {
+        widget.valueChange(item);
         print(item);
       },
       hint: Text(widget.hint),

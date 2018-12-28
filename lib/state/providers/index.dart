@@ -1,2 +1,2 @@
 export 'entradas.dart';
-//export 'categorys.dart';
+export 'grupos.dart';

@@ -9,7 +9,7 @@ class Entradas {
   final String password;
   final String link;
   final String nota;
-  // final String idCategory;
+  final String idGrupo;
 
   Entradas({
     this.id,
@@ -18,7 +18,7 @@ class Entradas {
     this.password,
     this.link,
     this.nota,
-    // this.idCategory,
+    this.idGrupo,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,8 +28,8 @@ class Entradas {
       C_USUARIO_PW: this.usuario,
       C_PASSWORD_PW: this.password,
       C_LINK_PW: this.link,
-      C_NOTA_PW: this.nota
-      // C_ID_CATEGORY: this.idCategory,
+      C_NOTA_PW: this.nota,
+      C_GRUPO_PW: this.idGrupo,
     };
   }
 
@@ -41,7 +41,7 @@ class Entradas {
       password: json.decode(map[C_USUARIO_PW]),
       link: json.decode(map[C_LINK_PW]),
       nota: json.decode(map[C_NOTA_PW]),
-      // idCategory: json.decode(map[C_ID_CATEGORY]),
+      idGrupo: json.decode(map[C_GRUPO_PW]),
     );
   }
 }

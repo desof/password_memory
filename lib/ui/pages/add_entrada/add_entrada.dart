@@ -15,11 +15,15 @@ class _AddEntradaState extends State<AddEntrada> {
       passwordController = TextEditingController(),
       usuarioController = TextEditingController(),
       linkController = TextEditingController(),
-      notaController = TextEditingController();
+      notaController = TextEditingController(),
+      idGrupoController = TextEditingController();
+
   // DateTime expiration;
   FocusNode titleNode = FocusNode(), usuarioNode = FocusNode();
   FocusNode passwordNode = FocusNode(), linkNode = FocusNode();
   FocusNode notaNode = FocusNode();
+
+  String categoria;
 
   add(BuildContext context, GlobalInheritedWidgetState state) {
     if (titleController.text.trim() == '' || titleController.text == null) {
@@ -37,13 +41,15 @@ class _AddEntradaState extends State<AddEntrada> {
     if (notaController.text.trim() == '' || notaController.value == null)
       return;
 
+    //if (idGrupoController.text.trim() == ''|| notaController.value == null) return;
+
     Entradas entrada = Entradas(
         titulo: titleController.text.trim(),
         usuario: usuarioController.text.trim(),
         password: passwordController.text.trim(),
         link: linkController.text.trim(),
-        nota: notaController.text.trim());
-
+        nota: notaController.text.trim(),
+        idGrupo: categoria);
     state.entradas.insertEntrada(entrada);
     Navigator.of(context).pop();
   }
@@ -88,8 +94,13 @@ class _AddEntradaState extends State<AddEntrada> {
             //nextFocusNode: notaNode,
           ),
           InputSelect(
-            hint: 'Seleccionar grupo...',
-          ),
+              hint: 'Seleccionar grupo...',
+              value: categoria,
+              valueChange: (String value) {
+                setState(() {
+                  categoria = value;
+                });
+              }),
         ],
       ),
     );

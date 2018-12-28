@@ -7,12 +7,16 @@ import 'package:rxdart/rxdart.dart';
 class GruposProviders {
   final BehaviorSubject<List<Grupos>> _grupos =
       BehaviorSubject<List<Grupos>>();
+final BehaviorSubject<String> _valueExample = BehaviorSubject<String>();
 
   DatabaseSqflite _db;
 
   Stream<List<Grupos>> get grupos => _grupos.stream;
+  Stream<String> get valueExample => _valueExample.stream;
+
 
   Function(List<Grupos>) get addGrupos => _grupos.sink.add;
+  Function(String) get addValue => _valueExample.sink.add;
 
   GruposProviders() {
     reset();
@@ -21,6 +25,7 @@ class GruposProviders {
   }
 
   void close() {
+    _valueExample.close();
     _grupos.close();
   }
 

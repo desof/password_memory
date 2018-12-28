@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_memory/state/models/grupos.dart';
+import 'package:password_memory/state/global_state.dart';
 
 class InputColor extends StatefulWidget {
   InputColor({@required this.hint});
@@ -12,6 +12,7 @@ class InputColor extends StatefulWidget {
 class _InputColorState extends State<InputColor> {
   @override
   Widget build(BuildContext context) {
+  GlobalInheritedWidgetState state = GlobalInheritedWidget.of(context);
     return ListTile(
         title: DropdownButtonFormField(
       items: [
@@ -34,11 +35,9 @@ class _InputColorState extends State<InputColor> {
       ],
       value: null,
       onChanged: (item) {
-        print(item);
-        setState(() {
-                  Grupos(color:item);
-                });
-      },
+              state.grupos.addValue(item);
+              print(item);
+            },
       hint: Text(widget.hint),
     ));
   }
