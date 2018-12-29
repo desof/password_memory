@@ -21,7 +21,7 @@ class ListViewGrupos extends StatelessWidget {
             itemCount: grupos.length,
             itemBuilder: (BuildContext context, int position) {
               Grupos grupo = grupos[position];
-
+               Divider();
               return Dismissible(
                 key: Key(grupo.id.toString()),
                 onDismissed: (direction) {
@@ -48,7 +48,13 @@ class ListViewGrupos extends StatelessWidget {
                 child: ListTile(
                   title: Text(grupo.nombre),
                   subtitle: Text(grupo.color),
-                  leading: Text(grupo.id?.toString() ?? ''),
+                  //leading: Text(grupo.id?.toString() ?? ''),
+                   leading: CircleAvatar(
+                    child: Text(grupo.id.toString()),
+                    backgroundColor: Colors.red,
+                    
+                  ),
+                   trailing: Icon(Icons.group),
                   onTap: () {
                     state.grupos.updategrupo(
                       Grupos(

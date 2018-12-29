@@ -1,47 +1,107 @@
 import 'package:flutter/material.dart';
 import 'package:password_memory/ui/pages/grupos/grupos.dart';
 import 'package:password_memory/ui/pages/home/home.dart';
+import 'package:flutter/services.dart';
 
 class MiMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.blueAccent,
+      statusBarColor: Colors.blueAccent,
+    ));
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gupos disponibles'),
+        title: Text('Mis Contraseñas'),
       ),
       body: Center(
         child: Container(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-            RaisedButton(
-              textColor: Colors.blueAccent,
-              child: Text("Grupos"),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => MisGrupos(),
-                  ),
-                );
-              },
-            ),
-            RaisedButton(
-              textColor: Colors.blueAccent,
-              child: Text("ENTRADAS"),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => Home(),
-                  ),
-                );
-              },
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RaisedButton.icon(
+                  icon: const Icon(Icons.add, size: 18.0),
+                  label:
+                      const Text('GRUPOS', semanticsLabel: 'RAISED BUTTON 2'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => MisGrupos(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              RaisedButton.icon(
+                icon: const Icon(Icons.add, size: 18.0),
+                label:
+                    const Text('ENTRADAS', semanticsLabel: 'RAISED BUTTON 2'),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => Home(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
     );
   }
+
+  Widget buildRaisedButton() {
+    return Align(
+      alignment: const Alignment(0.0, -0.2),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ButtonBar(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              RaisedButton(
+                child: const Text('RAISED BUTTON',
+                    semanticsLabel: 'RAISED BUTTON 1'),
+                onPressed: () {
+                  // Perform some action
+                },
+              ),
+              const RaisedButton(
+                child: Text('DISABLED', semanticsLabel: 'DISABLED BUTTON 1'),
+                onPressed: null,
+              ),
+            ],
+          ),
+          ButtonBar(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              RaisedButton.icon(
+                icon: const Icon(Icons.add, size: 18.0),
+                label: const Text('RAISED BUTTON',
+                    semanticsLabel: 'RAISED BUTTON 2'),
+                onPressed: () {
+                  // Perform some action
+                },
+              ),
+              RaisedButton.icon(
+                icon: const Icon(Icons.add, size: 18.0),
+                label:
+                    const Text('DISABLED', semanticsLabel: 'DISABLED BUTTON 2'),
+                onPressed: null,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
+
 /*
 
 child: RaisedButton(

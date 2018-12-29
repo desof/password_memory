@@ -48,7 +48,12 @@ class ListViewEntradas extends StatelessWidget {
                 child: ListTile(
                   title: Text(entrada.titulo),
                   subtitle: Text(entrada.usuario),
-                  leading: Text(entrada.id?.toString() ?? ''),
+                  dense: true,
+                  //leading: Text(entrada.id?.toString() ?? ''),
+                  leading: CircleAvatar(
+                    child: Text(entrada.id.toString()),
+                  ),
+                  trailing: Icon(Icons.vpn_key),
                   onTap: () {
                     state.entradas.updateentrada(
                       Entradas(
@@ -60,7 +65,7 @@ class ListViewEntradas extends StatelessWidget {
                         idGrupo: entrada.idGrupo,
                         id: entrada.id,
                       ),
-                      position,
+                      position,                    
                     );
                     /*print(" TITULO>>   ${entrada.titulo}");
                     print(" USUARIO>>  ${entrada.usuario}");
