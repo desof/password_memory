@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:password_memory/state/global_state.dart';
 
 class InputColor extends StatefulWidget {
-  InputColor({@required this.hint});
+  InputColor({@required this.hint, @required this.value, this.valueChange});
 
   final String hint;
+   final String value;
+  final Function(String) valueChange;
+
   @override
   _InputColorState createState() => _InputColorState();
 }
@@ -30,13 +33,14 @@ class _InputColorState extends State<InputColor> {
         ),
         DropdownMenuItem(
           child: Text('Verde'),
-          value: 'col-4',
+          value: 'Verde',
         ),
       ],
-      value: null,
+      value: widget.value ?? 'col-1',
       onChanged: (item) {
-              state.grupos.addValue(item);
-              print(item);
+              //state.grupos.addValue(item);
+              widget.valueChange(item);
+             print(item);
             },
       hint: Text(widget.hint),
     ));

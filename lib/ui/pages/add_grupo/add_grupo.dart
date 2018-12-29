@@ -11,6 +11,8 @@ class AddGrupo extends StatefulWidget {
   _AddGrupoState createState() => _AddGrupoState();
 }
 
+String color;
+
 class _AddGrupoState extends State<AddGrupo> {
   TextEditingController nombreController = TextEditingController(),
       colorController = TextEditingController();
@@ -27,7 +29,7 @@ class _AddGrupoState extends State<AddGrupo> {
 
     Grupos grupo = Grupos(
         nombre: nombreController.text.trim(),        
-        color: colorController.text.trim());
+        color: color);
 
     state.grupos.insertgrupo(grupo);
     Navigator.of(context).pop();
@@ -49,7 +51,14 @@ class _AddGrupoState extends State<AddGrupo> {
            // nextFocusNode: colorNode,
           ),         
           InputColor(
-            hint: 'Color del Grupo...',
+           hint: 'Seleccionar grupo...',
+              value: color,
+              valueChange: (String value) {
+                setState(() {
+                  color = value;
+                  print(color);
+                });
+              }            
           ),
         ],
       ),

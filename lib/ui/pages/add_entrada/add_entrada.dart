@@ -51,8 +51,12 @@ class _AddEntradaState extends State<AddEntrada> {
         nota: notaController.text.trim(),
         idGrupo: categoria);
     state.entradas.insertEntrada(entrada);
+    /*Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text("LISTO AGREGADO"),
+    ));*/
     Navigator.of(context).pop();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +103,7 @@ class _AddEntradaState extends State<AddEntrada> {
               valueChange: (String value) {
                 setState(() {
                   categoria = value;
+                  print(categoria);
                 });
               }),
         ],

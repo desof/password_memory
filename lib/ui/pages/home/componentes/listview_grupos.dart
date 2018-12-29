@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:password_memory/state/global_state.dart';
 import 'package:password_memory/state/models/grupos.dart';
 
-
 class ListViewGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -54,15 +53,19 @@ class ListViewGrupos extends StatelessWidget {
                     state.grupos.updategrupo(
                       Grupos(
                         nombre: grupo.nombre,
-                        color: grupo.color,                    
+                        color: grupo.color,
                         id: grupo.id,
                       ),
                       position,
                     );
-                    print("NOMBRE>>>  ${grupo.nombre}");
-                    print("COLOR>>>>  ${grupo.color}");
-
-                    
+                   /*print("NOMBRE>>>  ${grupo.nombre}");
+                    print("COLOR>>>>  ${grupo.color}");*/
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                        " NOMBRE=  ${grupo.nombre} / COLOR=  ${grupo.color}",
+                        textAlign: TextAlign.center,
+                      ),
+                    ));
                   },
                 ),
               );

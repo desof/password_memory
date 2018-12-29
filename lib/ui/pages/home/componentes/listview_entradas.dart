@@ -62,12 +62,18 @@ class ListViewEntradas extends StatelessWidget {
                       ),
                       position,
                     );
-                    print(" TITULO>>   ${entrada.titulo}");
+                    /*print(" TITULO>>   ${entrada.titulo}");
                     print(" USUARIO>>  ${entrada.usuario}");
                     print(" PASS>>     ${entrada.password}");
                     print(" link>>     ${entrada.link}");
                     print(" NOTA>>     ${entrada.nota} ");
-                    print(" GRUPO>>    ${entrada.idGrupo} ");
+                    print(" GRUPO>>    ${entrada.idGrupo} ");*/
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                        " TITULO=  ${entrada.titulo} / USUARIO=  ${entrada.usuario} / PASS=  ${entrada.password} / LINK=  ${entrada.link} / NOTA=  ${entrada.nota} / GRUPO=  ${entrada.idGrupo}",
+                        textAlign: TextAlign.center,
+                      ),
+                    ));
                   },
                 ),
               );
