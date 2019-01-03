@@ -18,15 +18,15 @@ class _InputSelectState extends State<InputSelect> {
         title: DropdownButtonFormField(
       items: [
         DropdownMenuItem(
-          child: Text('GRUPO 1'),
-          value: 'cat-1',
+          child: Text('GENERAL'),
+          value: 'gru-1',
         ),
         DropdownMenuItem(
           child: Text('GRUPO 2'),
-          value: 'cat-2',
+          value: 'gru-2',
         ),
       ],
-      value: widget.value ?? 'cat-1',
+      value: widget.value ?? 'gru-1',
       onChanged: (item) {
         widget.valueChange(item);
         print(item);

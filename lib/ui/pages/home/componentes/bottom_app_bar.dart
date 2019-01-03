@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_memory/ui/pages/add_grupo/add_grupo.dart';
+import 'package:password_memory/ui/pages/add_grupo.dart';
 
 
 class CustomBottomAppBar extends StatelessWidget {

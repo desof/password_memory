@@ -21,7 +21,7 @@ class ListViewEntradas extends StatelessWidget {
             itemCount: entradas.length,
             itemBuilder: (BuildContext context, int position) {
               Entradas entrada = entradas[position];
-
+            Divider();
               return Dismissible(
                 key: Key(entrada.id.toString()),
                 onDismissed: (direction) {

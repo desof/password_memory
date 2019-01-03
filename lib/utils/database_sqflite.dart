@@ -37,7 +37,7 @@ class DatabaseSqflite {
   Future _onUpgrade(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 1) {
       await db.execute(
-        'CREATE TABLE $T_ENTRADAS($C_ID_PW INTEGER PRIMARY KEY, $C_TITULO_PW TEXT, $C_USUARIO_PW TEXT, $C_PASSWORD_PW TEXT, $C_LINK_PW TEXT, $C_NOTA_PW TEXT, $C_GRUPO_PW TEXT)',
+        'CREATE TABLE $T_ENTRADAS($C_ID_EN INTEGER PRIMARY KEY, $C_TITULO_EN TEXT, $C_USUARIO_EN TEXT, $C_PASSWORD_EN TEXT, $C_LINK_EN TEXT, $C_NOTA_EN TEXT, $C_ID_GRUPO_EN TEXT)',
       );
        await db.execute(
         'CREATE TABLE $T_GRUPOS($C_ID_GR INTEGER PRIMARY KEY, $C_NOMBRE_GR TEXT, $C_COLOR_GR TEXT)',
@@ -73,12 +73,12 @@ class DatabaseSqflite {
   Future<int> update(String table, Map options, int id) async {
     Database dbClient = await db;
     return await dbClient
-        .update(table, options, where: '$C_ID_PW = ?', whereArgs: [id]);
+        .update(table, options, where: '$C_ID_EN = ?', whereArgs: [id]);
   }
 
   Future<int> delete(String table, int id) async {
     Database dbClient = await db;
-    return await dbClient.delete(table, where: '$C_ID_PW = ?', whereArgs: [id]);
+    return await dbClient.delete(table, where: '$C_ID_EN = ?', whereArgs: [id]);
   }
 
   Future<dynamic> close() async {

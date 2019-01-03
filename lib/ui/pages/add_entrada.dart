@@ -42,7 +42,9 @@ class _AddEntradaState extends State<AddEntrada> {
       return;
 
     //if (idGrupoController.text.trim() == ''|| notaController.value == null) return;
-
+    if (categoria == null) {
+      categoria = 'GENERAL';
+    }
     Entradas entrada = Entradas(
         titulo: titleController.text.trim(),
         usuario: usuarioController.text.trim(),
@@ -54,9 +56,9 @@ class _AddEntradaState extends State<AddEntrada> {
     /*Scaffold.of(context).showSnackBar(SnackBar(
       content: Text("LISTO AGREGADO"),
     ));*/
+     categoria = null;
     Navigator.of(context).pop();
   }
-
 
   @override
   Widget build(BuildContext context) {

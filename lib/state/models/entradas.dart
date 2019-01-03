@@ -23,25 +23,25 @@ class Entradas {
 
   Map<String, dynamic> toMap() {
     return {
-      C_ID_PW: this.id,
-      C_TITULO_PW: this.titulo,
-      C_USUARIO_PW: this.usuario,
-      C_PASSWORD_PW: this.password,
-      C_LINK_PW: this.link,
-      C_NOTA_PW: this.nota,
-      C_GRUPO_PW: this.idGrupo,
+      C_ID_EN: this.id,
+      C_TITULO_EN: this.titulo,
+      C_USUARIO_EN: this.usuario,
+      C_PASSWORD_EN: this.password,
+      C_LINK_EN: this.link,
+      C_NOTA_EN: this.nota,
+      C_ID_GRUPO_EN: this.idGrupo,
     };
   }
 
   factory Entradas.fromMap(Map map) {
     return Entradas(
-      id: json.decode(map[C_ID_PW]),
-      titulo: json.decode(map[C_TITULO_PW]),
-      usuario: json.decode(map[C_USUARIO_PW]),
-      password: json.decode(map[C_USUARIO_PW]),
-      link: json.decode(map[C_LINK_PW]),
-      nota: json.decode(map[C_NOTA_PW]),
-      idGrupo: json.decode(map[C_GRUPO_PW]),
+      id: json.decode(map[C_ID_EN]),
+      titulo: json.decode(map[C_TITULO_EN]),
+      usuario: json.decode(map[C_USUARIO_EN]),
+      password: json.decode(map[C_USUARIO_EN]),
+      link: json.decode(map[C_LINK_EN]),
+      nota: json.decode(map[C_NOTA_EN]),
+      idGrupo: json.decode(map[C_ID_GRUPO_EN]),
     );
   }
 }
